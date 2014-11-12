@@ -3,11 +3,53 @@ Seat yourself user stories.
 MVP
 ---
 
-As a user,
+As a customer or restaurant 
+  I want to be able to login and out
+  So that no one can mess with my reservations.
+
+
+As a customer,
   I want to make a reservation,
   So that, I don't have to wait.
 
   I want to see the home page of seatyourself.com
   So that I can see an overview of the site.
 
-  
+  I want to list all the restaurants
+  So that I can find a suitable place to eat.
+
+  I want to search for a restaurant
+  So that I can see their info
+
+  I want to see the restaurants profile page
+  So that I can find out more information.
+
+  I want to see my profile page
+  So that i can update my settings.
+
+  I want to see my profile page
+  So that i can see my all reservations.
+
+
+As a restaurant,
+
+  I want to register my restaurant.
+  So that people can make reservations at my restaurant.
+
+  I want to create/update profile page.
+  So that it contains the most current information.
+
+  I want to see all the current reservations, sorted by date.
+  so that I know how busy it will be.
+
+
+As a reservation,
+  I want to know when the restaurant is open,
+  so that the reservation will be when the restaurant is open.
+
+  I want to know if it will be over restaurant cappacity.
+  so that I don't over book.
+
+
+
+
