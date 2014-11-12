@@ -1,0 +1,13 @@
+Seat yourself user stories.
+
+MVP
+---
+
+As a user,
+  I want to make a reservation,
+  So that, I don't have to wait.
+
+  I want to see the home page of seatyourself.com
+  So that I can see an overview of the site.
+
+  
