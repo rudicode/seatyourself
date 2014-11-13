@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   def create
   	@customer = Customer.create(user_params)
   	if @customer.save
-  		redirect_to home_path
+  		redirect_to root_path
   	else
   		render :new
   	end
