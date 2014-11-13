@@ -78,6 +78,9 @@ GEM
     pry-byebug (2.0.0)
       byebug (~> 3.4)
       pry (~> 0.10)
+    pry-doc (0.6.0)
+      pry (~> 0.9)
+      yard (~> 0.8)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     quiet_assets (1.0.3)
@@ -134,6 +137,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -148,6 +152,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pry-byebug
+  pry-doc
   pry-rails
   quiet_assets
   rails (= 4.1.7)

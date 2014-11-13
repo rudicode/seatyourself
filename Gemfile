@@ -41,6 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'pry-doc'
   gem 'pry-byebug'
   gem 'awesome_print'
   gem 'better_errors'
