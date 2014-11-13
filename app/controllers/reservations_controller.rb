@@ -7,7 +7,9 @@ class ReservationsController < ApplicationController
   	@reservation = Reservation.new(res_params)
   	@reservation.customer_id = current_customer.id
   	@restaurant = @reservation.restaurant
-  	if params[:reservation][:people].to_i > (100- @restaurant.timeslots(params[:reservation][:time]))
+  	currcap = @restaurant.timeslots(params[:reservation][:time])
+  	binding.pry
+  	if params[:reservation][:people].to_i > (100- currcap)
   		flash.now[:alert]= "At capacity"
   		render 'restaurants/show'
   	else
