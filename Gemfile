@@ -30,8 +30,6 @@ gem 'faker'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'pry-rails'
-gem 'awesome_print'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -41,3 +39,12 @@ gem 'awesome_print'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'awesome_print'
+  gem 'better_errors'
+
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+end
