@@ -5,8 +5,9 @@ class ReservationsController < ApplicationController
 
   def create
   	@reservation = Reservation.new(res_params)
+  	@reservation.customer_id = current_customer.id
   	if @reservation.save
-  		redirect_to root_path
+  		redirect_to restaurant_path(@reservation.restaurant), notice: "Made a reservation"
   	else
   		render :new
   	end
@@ -14,6 +15,6 @@ class ReservationsController < ApplicationController
 
   private
   def res_params
-  	params.require(:reservation).permit(:time, :customer_id, :restaurant_id, :people)
+  	params.require(:reservation).permit(:time, :restaurant_id, :people)
   end
 end

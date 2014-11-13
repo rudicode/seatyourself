@@ -1,3 +1,17 @@
 <h1><%= @restaurant.name %></h1>
 
+<%= form_for @reservation do |f| %>
+	<div class="field">
+		<%= f.label :people %><br>
+		<%= f.text_field :people %>
+	</div>
+	<div class="field">
+		<%= f.label :time%><br>
+		<%= f.date_field :time %>
+	</div>
+	<%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+	<%= f.hidden_field :restaurant, :value => @restaurant %>
+	<div class="Actions"><%= submit_tag "Reserve" %></div>
+<% end %>
+
 
