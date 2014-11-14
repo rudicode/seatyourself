@@ -13,7 +13,7 @@ class Restaurant < ActiveRecord::Base
 	def timeslots(time)
 		total = 0
 		reservations.each do |r|
-			if (r.time >= Date.parse(time) && r.time <= Date.parse(time) + 60.minutes)
+			if (r.time >= time && r.time <= time + 60.minutes)
 				total += r.people
 			end
 		end
