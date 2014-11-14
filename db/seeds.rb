@@ -10,7 +10,8 @@ require "faker"
 10.times do
   Restaurant.create!(
     name: Faker::Company.name,
-    summary: Faker::Company.catch_phrase
+    summary: Faker::Company.catch_phrase,
+    capacity: 50
   )
 end
 

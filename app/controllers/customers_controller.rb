@@ -13,6 +13,11 @@ class CustomersController < ApplicationController
   	end
   end
 
+    def show
+      @customer = Customer.find(params[:id])
+    end
+
+
 
   private
   def user_params

@@ -1,0 +1,12 @@
+<h1><%= @customer.name %></h1>
+<h3>Your reservations</h3>
+<table>
+  
+<% @customer.reservations.order(time: :desc).each do |reservation| %>
+  <li>
+    <%= reservation.people %> people,
+     at <%= reservation.restaurant.name %>, on
+    <%= reservation.time %>
+  </li>
+<% end %>
+</table>
