@@ -6,10 +6,19 @@ class ReservationsController < ApplicationController
   def create
   	@reservation = Reservation.new(res_params)
   	@reservation.customer_id = current_customer.id
-  	if @reservation.save
-  		redirect_to restaurant_path(@reservation.restaurant), notice: "Made a reservation"
+  	@restaurant = @reservation.restaurant
+  	currcap = @restaurant.timeslots(params[:reservation][:time])
+  	binding.pry
+  	if params[:reservation][:people].to_i > (100- currcap)
+  		flash.now[:alert]= "At capacity"
+  		render 'restaurants/show'
   	else
-  		render :new
+  		if @reservation.save 
+  			redirect_to restaurant_path(@reservation.restaurant), notice: "Made a reservation"
+  		else
+
+  			render 'restaurants/show'
+  		end
   	end
   end
 
