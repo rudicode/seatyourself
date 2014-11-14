@@ -7,6 +7,10 @@ class Reservation < ActiveRecord::Base
   validate :avaliability
   validates_inclusion_of :people, :in => 1..1000
 
+  def time_formated
+    time.strftime("%A, %d %b %Y %l:%M %p")
+  end
+
    private
 
      #custom validation
