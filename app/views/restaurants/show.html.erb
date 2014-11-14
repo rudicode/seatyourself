@@ -13,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-
+<% if current_customer %>
 <div class="field">
 	<%= f.label :people %><br>
 	<%= f.text_field :people %>
@@ -24,10 +24,13 @@
 </div>
 <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
 <div class="Actions"><%= submit_tag "Reserve" %></div>
-<% end %>
 
 <ul>
-	<% @restaurant.reservations do |r| %>
-	<li>Reservations is at <%= r.time %></li>
-	<% end %>
+  <% @restaurant.reservations do |r| %>
+  <li>Reservations is at <%= r.time %></li>
+  <% end %>
 </ul>
+<% else %>
+<p>Please login to make a reservation</p>
+<% end %>
+<% end %>

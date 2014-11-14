@@ -1,4 +1,7 @@
 class ReservationsController < ApplicationController
+
+  #before_action :ensure_logged_in, only: [:show]
+
   def new
   	@reservation = Reservation.new
   end
