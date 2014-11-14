@@ -4,20 +4,14 @@ class Reservation < ActiveRecord::Base
 
 	validates :people,:time, presence: true
 	validates :people, numericality: {only_integer: true}
-	validates_inclusion_of :people, :in => 2..100
-  validates :avaliability
-
-  def available?(party_size, start_time, restaurant_id)
-    reserved = Reservation.where(:restaurant_id => restaurant_id).where(:time => start_time).sum(:people)
-    binding.pry
-    return party_size.to_i <= (100 - reserved)
-  end
+  validate :avaliability
+  validates_inclusion_of :people, :in => 2..100
 
    private
 
      #custom validation
    def avaliability
-     unless restaurant.avaliable?(party_size,time)
+     unless restaurant.available?(people,time)
        errors.add(:base, "Restaurant is full at that time.")
      end
    end
