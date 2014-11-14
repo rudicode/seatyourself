@@ -48,4 +48,7 @@ group :development, :test do
 
   gem 'binding_of_caller'
   gem 'quiet_assets'
+
+  gem 'rspec-rails', '~> 3.0.0'
+  
 end

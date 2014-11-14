@@ -20,4 +20,9 @@ class Restaurant < ActiveRecord::Base
 		return total
 	end
 
+	def avaliable?(party_size, start_time)
+		reserved = reservations.where(:time => start_time).sum(:party_size)
+		party_size <= ( capacity - reserved )
+	end
+
 end

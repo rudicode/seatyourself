@@ -1,0 +1,4 @@
+--color
+--no-fail-fast
+--format d
+--require spec_helper
