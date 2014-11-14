@@ -15,6 +15,11 @@ class CustomersController < ApplicationController
 
     def show
       @customer = Customer.find(params[:id])
+      unless current_customer.id == params[:id].to_i
+        # binding.pry
+
+        redirect_to root_path, notice: 'Sorry you are not authorized to view this profile.'
+      end
     end
 
 

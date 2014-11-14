@@ -1,7 +1,7 @@
 <h1><%= @customer.name %></h1>
 <h3>Your reservations</h3>
-<table>
 
+<table>
 <% @customer.current_reservations.each do |reservation| %>
   <li>
     <%= reservation.people %> people,
