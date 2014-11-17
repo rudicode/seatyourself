@@ -11,7 +11,7 @@ before_filter :ensure_logged_in, only: [:create, :destroy]
     @review.customer = current_customer
 
     if @review.save
-      redirect_to restaurants_path, notice: 'Review created successfully'
+      redirect_to customer_path(current_customer), notice: 'Review created successfully'
     else
       render 'restaurants/show'
     end
