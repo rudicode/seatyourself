@@ -4,7 +4,7 @@ class Reservation < ActiveRecord::Base
 
 	validates :people, :time, presence: true
 	validates :people, numericality: {only_integer: true}
-  validate :avaliability
+  validate :availability
   validates_inclusion_of :people, :in => 1..1000
 
   def time_formated
@@ -14,8 +14,8 @@ class Reservation < ActiveRecord::Base
    private
 
      #custom validation
-   def avaliability
-     unless restaurant.available?(people,time)
+   def availability
+     unless restaurant.available?(people, time)
        errors.add(:base, "Restaurant is full at that time.")
      end
    end
