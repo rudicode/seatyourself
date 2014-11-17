@@ -1,12 +1,14 @@
 class Restaurant < ActiveRecord::Base
 	has_many :reservations
 
-  validates :capacity, presence: true
-  
+	has_many :reviews
+	has_many :customers, through: :reviews
+
+	validates :capacity, presence: true
+
 
 	def available?(party_size, start_time)
 		party_size <= spaces_remaining(party_size,start_time)
-		#binding.pry
 	end
 
 	def spaces_remaining(party_size, start_time)
