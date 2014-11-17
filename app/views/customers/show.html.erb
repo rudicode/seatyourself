@@ -15,7 +15,7 @@
 <table>
 	<% @customer.customer_reviews.each do |review| %>
   <li>
-  	For <%=review.restaurant.name %> your review is:
+  	For <%=link_to(review.restaurant.name, restaurant_path(review.restaurant))  %> your review is:
     <%=review.comment %>
   </li>
 <% end %>
