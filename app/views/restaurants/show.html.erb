@@ -8,7 +8,7 @@
       <br>
       <% if review.customer != nil %>
         <em> by <%= review.customer.email %></em>
-        Added on: <%= review.created_at %>
+        Added on: <%= review.created_at.strftime("%m-%e-%y %H:%M") %>
       <% end %>
     </p>
   <% end %>
