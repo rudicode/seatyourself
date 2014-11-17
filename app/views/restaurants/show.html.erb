@@ -3,34 +3,35 @@
 <%= form_for @reservation do |f| %>
 
 <% if @reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this product from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% @reservation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+    <% @reservation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <% if current_customer %>
-<div class="field">
-	<%= f.label :people %><br>
-	<%= f.text_field :people %>
-</div>
-<div class="field">
-	<%= f.label :time%><br>
-	<%= f.datetime_select :time, :minute_step => 60 %>
-</div>
-<%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
-<div class="Actions"><%= submit_tag "Reserve" %></div>
+    <div class="field">
+    	<%= f.label :people %><br>
+    	<%= f.text_field :people %>
+    </div>
+    <div class="field">
+    	<%= f.label :time%><br>
+    	<%= f.datetime_select :time, :minute_step => 60 %>
+    </div>
+    <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+    <div class="Actions"><%= submit_tag "Reserve" %></div>
 
-<ul>
-  <% @restaurant.reservations do |r| %>
-  <li>Reservations is at <%= r.time %></li>
+    <ul>
+      <% @restaurant.reservations do |r| %>
+      <li>Reservations is at <%= r.time %></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>Please login to make a reservation</p>
   <% end %>
-</ul>
-<% else %>
-<p>Please login to make a reservation</p>
 <% end %>
-<% end %>
+<%= raw(@restaurant.map_url) %>

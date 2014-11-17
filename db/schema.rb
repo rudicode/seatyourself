@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114161630) do
+ActiveRecord::Schema.define(version: 20141117181931) do
 
   create_table "customers", force: true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141114161630) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "capacity"
+    t.string   "map_url"
   end
 
 end
