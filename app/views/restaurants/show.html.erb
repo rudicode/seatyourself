@@ -1,5 +1,20 @@
 <h1><%= @restaurant.name %></h1>
 
+<h3>Reviews for <%= @restaurant.name %></h3>
+
+  <% @restaurant.reviews.each do |review| %>
+    <p>
+      <%= review.comment %>
+      <br>
+      <% if review.customer != nil %>
+        <em> by <%= review.customer.email %></em>
+        Added on: <%= review.created_at %>
+      <% end %>
+    </p>
+  <% end %>
+
+<h3>Make a reservation</h3>
+
 <%= form_for @reservation do |f| %>
 
 <% if @reservation.errors.any? %>
@@ -14,20 +29,33 @@
     </div>
   <% end %>
 
+
+<% if current_customer %>
+
 <div class="field">
-	<%= f.label :people %><br>
-	<%= f.text_field :people %>
-</div>
-<div class="field">
-	<%= f.label :time%><br>
-	<%= f.datetime_select :time, :minute_step => 60 %>
-</div>
-<%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
-<div class="Actions"><%= submit_tag "Reserve" %></div>
+    <%= f.label :people %><br>
+    <%= f.text_field :people %>
+  </div>
+  <div class="field">
+    <%= f.label :time%><br>
+    <%= f.datetime_select :time, :minute_step => 60 %>
+  </div>
+    <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+  <div class="Actions"><%= submit_tag "Reserve" %></div>
+
+  <ul>
+    <% @restaurant.reservations do |r| %>
+    <li>Reservations is at <%= r.time %></li>
+    <% end %>
+  </ul>
+ 
+
+
+<% else %>
+<p>Please login to make a reservation</p>
 <% end %>
 
-<ul>
-	<% @restaurant.reservations do |r| %>
-	<li>Reservations is at <%= r.time %></li>
-	<% end %>
-</ul>
+<% end %>
+  <h4>New Review</h4>
+
+  <%=render 'reviews/show' %>

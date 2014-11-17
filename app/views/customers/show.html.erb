@@ -10,3 +10,13 @@
   </li>
 <% end %>
 </table>
+
+<h4> Your reviews </h4>
+<table>
+	<% @customer.customer_reviews.each do |review| %>
+  <li>
+  	For <%=review.restaurant.name %> your review is:
+    <%=review.comment %>
+  </li>
+<% end %>
+</table>
